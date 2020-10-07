@@ -5,9 +5,11 @@
 <html lang="ru">
 <head>
     <title>Meals</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h3><a href="index.html">Home</a></h3>
+<h3><a href="index.html">На главную</a></h3>
+<h3><a href="meal">Добавить еду</a></h3>
 <hr>
 <div class="title">
     <p><h2>Meals</h2>
@@ -16,9 +18,10 @@
     <thead>
         <tr>
             <th>№</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Calories</th>
+            <th>Дата</th>
+            <th>Описание</th>
+            <th>Калории</th>
+            <th>Действия</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +40,10 @@
             <td>${meal.dateTime.toLocalDate()}</td>
             <td>${meal.description}</td>
             <td>${meal.calories}</td>
+            <td>
+                <button type="submit"><a href="edit?date=<c:out value="${meal.dateTime}"/>">Редактировать</a></button>
+                <button type="submit"><a href="delete?date=<c:out value="${meal.dateTime}"/>">Удалить</a></button>
+            </td>
         </tr>
         <c:set var="i" value="${i + 1}"/>
     </c:forEach>
